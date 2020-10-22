@@ -1,0 +1,47 @@
+body {
+    position: relative;
+    z-index: 1;
+    background: rgba(199, 223, 252, 0.5);
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+form input {
+    font-family: "Verdana", sans-serif;
+    outline: 1;
+    background: #f4f4f4;
+    width: 100%;
+    border: 0;
+    margin: 0 0 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+form button {
+    font-family: "Verdana", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #550eff;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+p a {
+    text-decoration: none;
+}

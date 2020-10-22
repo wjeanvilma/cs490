@@ -1,0 +1,39 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+
+div#welcome {
+    background: rgba(199, 223, 252, 0.5);
+    padding: 20px 10px;
+}
+
+.welcome {
+    font-weight: 700;
+}
+
+.form-inline {
+    float: left;
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+    color: #000000;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+form.home {
+    padding: 5px;
+}
+
+form.logout {
+    padding: 5px;
+}
+
+form button {
+    border: none;
+    background: rgba(199, 223, 252, 0.5);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}

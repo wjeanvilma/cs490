@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JWD Signup</title>
+        <meta name="description" content="JWD Signup Page"/>
+        <link rel="stylesheet" href="signup.css"/>
+    </head>
+    <body>
+        <div class = "signUpPage">
+            <h1>Create your login information</h1>
+            <div class = "signUpInfo">
+                <form action = "register.php" method="post" id="sUForm">
+                    <input type="text" name="fullName" placeholder="Full Name" required><br><br>
+                    <input type="text" name="username" placeholder="Username" required><br><br>
+                    <input type="password" name="password" placeholder="Password" id="password" required><br><br>
+                    <input type="password" name="cPassword" placeholder="Confirm Password" id="cPassword" required oninput="check(this)"><br><br>
+                    <input type="email" name="email" placeholder="Email" required><br><br>
+                    <script src="jScripts.js"></script>
+                    <!--<input type="submit" id="submit" value="Create Account" name = "register">-->
+                    <button type="submit" value="Create Account" name="register">Create Account</button>
+                </form>
+            </div>      
+        </div>  
+        <p>Already have an Account? <a href="index.html">Log in</a></p>
+        <p id="status" style="color : red"></p>
+    </body>
+</html>
+ 
