@@ -85,6 +85,6 @@ function getSelectedUser(selected) {
 </script>
   <?php 
   if(isset($_POST['user'])){
-    $_SESSION['search'] = $_POST['user'];
+    $_SESSION['selected'] = $_POST['user'];
   }
  ?>

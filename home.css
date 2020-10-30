@@ -2,6 +2,10 @@
     padding-left: 2%;
 }
 
+.home-body{
+    background: rgba(199, 223, 252, 0.5);
+}
+
 textarea {
     border: 2px solid rgba(199, 223, 252, 0.5);
     border-radius: 15px;

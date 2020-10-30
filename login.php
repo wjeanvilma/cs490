@@ -14,44 +14,48 @@
 
   $conn = mysqli_connect($server, $user, $password, $dbName);
 
- if (!$conn){
-     echo "Not connected to server";
- } 
- if(!mysqli_select_db($conn, $dbName)){
-	echo "Database not selected";
+  if (!$conn){
+    echo "Not connected to server";
+} 
+if(!mysqli_select_db($conn, $dbName)){
+ echo "Database not selected";
 } 
 
 $username = $_POST["username"];
 $pword = $_POST["password"];
 
- $sql = "Select * from users where username ='".$username."'";
- 
- $result = mysqli_query($conn, $sql);
+$sql = "Select * from users where username ='".$username."'";
 
- if(mysqli_num_rows($result)==1){
+$result = mysqli_query($conn, $sql);
 
-    $row = mysqli_fetch_assoc($result);
-    $userID = $row['userID'];
-    $hashed_password = $row['password'];
+if(mysqli_num_rows($result)==1){
 
-    if(password_verify($pword, $hashed_password)){
+   $row = mysqli_fetch_assoc($result);
+   $userID = $row['userID'];
+   $username = $row['username'];
+   $hashed_password = $row['password'];
 
-    session_start();
-    $_SESSION['logged'] = true;
-    $_SESSION['username'] = $username;
-    $_SESSION['userID'] = $userID;
-    
-    header("Location: Home.php");
-    
-    } else {
-      echo 
-     '<script>
-        document.getElementById("status").innerHTML = "Incorrect Username or Password";
-      </script>';
-      
-  }
+   if(password_verify($pword, $hashed_password)){
 
+   session_start();
+   $_SESSION['logged'] = true;
+   $_SESSION['username'] = $username;
+   $_SESSION['userID'] = $userID;
+   
+   header("Location: Home.php");
+   
+   } else {
+     echo 
+    '<script>
+       document.getElementById("status").innerHTML = "Incorrect Password";
+     </script>';
+     
+ } 
+
+} else {
+ echo 
+    '<script>
+       document.getElementById("status").innerHTML = "Username not found!";
+     </script>';
 }
-
-
 ?>
