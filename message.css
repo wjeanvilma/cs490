@@ -1,0 +1,28 @@
+.message-div, .chat-with{
+    margin-left: auto;
+    margin-right: auto;
+}
+.myMessage{
+margin-left: auto;
+margin-right: 0;
+text-align: right;
+}
+.otherMessage{
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+}
+
+.messageForm{
+    width: 95%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.messageInput{
+width: 80%;
+}
+.sendMessage{
+width: 18%;
+margin-left: 5px; 
+}

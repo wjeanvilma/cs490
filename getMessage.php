@@ -6,7 +6,7 @@ session_start();
 //     $password = "Jeelio123";
 //     $dbName = "u191982321_thisDB";
 
-    $server = "127.0.0.1";
+$server = "127.0.0.1";
 $user = "root";
 $password = "";
 $dbName = "testDB";

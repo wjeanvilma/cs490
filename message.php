@@ -4,7 +4,13 @@ include "header.php";
 
 $_SESSION['title'] = "Chat";
 ?>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="message.css?version=89" />
+</head>
 <?php
 //     $server = "localhost";
 // $user = "u191982321_jwd";
@@ -42,14 +48,15 @@ $conn = mysqli_connect($server, $user, $password, $dbName);
 ?>
 
 <div>
-    <h5>Chattin with, <?php echo $_SESSION['selected'] ?></h5>
+<h5 class="chat-with w-75">Chattin with, <?php echo $_SESSION['selected'] ?></h5><br>
 
     <div class="message-div card w-75" id="message-div">
         <div class="card-body">
             <div id="messageDiv">
+
             </div>
             <div class="messageForm">
-                <form class="messageForm">
+                <form class="row">
                     <input class="messageInput" type="text" id="message" name="Message"
                         placeholder="Type your message here" required>
                     <input type="button" id="send"

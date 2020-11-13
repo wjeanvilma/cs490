@@ -4,22 +4,28 @@
 <head>
     <title>JWD</title>
     <meta name="description" content="JWD Login Page" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index.css?version=9" />
 </head>
+<header>
+    <div id="welcome">
+        <h1>WELCOME TO JWD</h1>
+    </div>
+</header>
 
 <body>
-    <h1>WELCOME TO JWD</h1>
-    <form action="login.php" method="post">
+    <form action="login.php" method="post" id="form">
         <!-- WHEN TURNING IN action="login.php"-->
         <br><input type="text" name="username" required placeholder="Username"><br>
         <br><input type="password" name="password" required placeholder="Password"><br>
         <br>
         <!--<input type="submit" id="submit" value="Log In" name='login'> -->
         <button type="submit" value="Log In" name="login" id="submit">Log In</button>
-    </form>
+    
     <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
     <br>
     <p id="status" style="color : red"></p>
+</form>
+    
 </body>
 
 </html>

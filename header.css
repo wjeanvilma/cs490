@@ -1,15 +1,16 @@
-body {
+/* body {
     font-family: 'Montserrat', sans-serif;
-    color: black;
+   
 }
 
 div#welcome {
-   
+    background-color: red;
     padding: 20px 10px;
 }
 
-.welcome {
+#welcome {
     font-weight: 700;
+    color: white;
 }
 
 .form-inline {
@@ -36,4 +37,46 @@ form button {
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     font-weight: 700;
+}
+h1{
+    color: white;
+} */
+
+#welcome {
+    background: #f01a1a;
+    padding: 20px 10px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.form-inline {
+    float: left;
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+#search {
+    border: none;
+    font-family: "Verdana", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+#h {
+    border: none;
+    font-family: "Verdana", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+#l {
+    border: none;
+    font-family: "Verdana", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 3px;
 }

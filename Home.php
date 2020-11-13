@@ -3,17 +3,17 @@
 <html>
     <head>
         <title>Home</title>
-        <link rel="stylesheet" href="home.css?version=3" />
+        <link rel="stylesheet" href="home.css?version=11" />
     </head>
     <body>
         <?php include "header.php" ?>
         <div class="home-body">        
         <div id="postBox">
-            <form action = "post.php" method = "post">
-                <textarea name="announcement"  cols="60" rows="5" placeholder="Write a post here!"></textarea>
+            <form action = "post.php" method = "post" enctype="multipart/form-data">
+                <textarea name="announcement"  cols="60" rows="5" required placeholder="Write a post here!"></textarea>
                 <br><br>
-                <input type="file" id="upload_file" accept="image/*, .pdf">
-                <button class="btn btn-secondary postBt" type="submit" value = "Post" name="post">Post</button>
+                <input name="file" type="file" id="upload_file" accept="image/*">
+                <button class="btn btn-secondary postBt" type="submit" id="post" value = "Post" name="post">Post</button>
             </form>
         </div>
         <!--MAYBE ADD TABS SO THAT YOU HAVE 'FRIENDS ANNOUNCEMENTS' AND THEN YOU CAN TAB OVER TO 'ALL ANNOUNCEMENTS'?-->
@@ -30,8 +30,20 @@
 
             <script>
             function getAnnID(id){
-                  console.log(id);
+                let announcementID = id;
+                let comment = $("#annoucement"+id).val();
+                $.ajax({
+                url: "comment.php",
+                method: "POST",
+                data: {
+                    announcementID: id,
+                    comment: comment
+                },
+                success: function(res) {
+                    location.reload();
                 }
+                });
+            }
                 
             </script>
         </div>

@@ -5,11 +5,15 @@
         <meta name="description" content="JWD Signup Page"/>
         <link rel="stylesheet" href="signup.css"/>
     </head>
+    <header>
+        <div id="welcome">
+            <h1>PLEASE CREATE AN ACCOUNT</h1>
+        </div>
+    </header>
     <body>
         <div class = "signUpPage">
-            <h1>Create your login information</h1>
             <div class = "signUpInfo">
-                <form action = "register.php" method="post" id="sUForm">
+                <form action = "register.php" method="post" id="form">
                     <input type="text" name="fullName" placeholder="Full Name" required><br><br>
                     <input type="text" name="username" placeholder="Username" required><br><br>
                     <input type="password" name="password" placeholder="Password" id="password" required><br><br>
@@ -18,11 +22,13 @@
                     <script src="jScripts.js"></script>
                     <!--<input type="submit" id="submit" value="Create Account" name = "register">-->
                     <button type="submit" value="Create Account" name="register">Create Account</button>
+                    <p>Already have an Account? <a href="index.html">Log in</a></p>
+                    <p id="status" style="color : red"></p>
                 </form>
             </div>      
         </div>  
-        <p>Already have an Account? <a href="index.html">Log in</a></p>
-        <p id="status" style="color : red"></p>
+       
+        
     </body>
 </html>
  

@@ -1,5 +1,5 @@
 <head>
-<link rel="stylesheet" href="search.css"/>
+<link rel="stylesheet" href="search.css?version=7"/>
 </head>
 
 <?php
@@ -53,13 +53,13 @@ include_once "header.php";
         
     
     <div class="from-inline" >
-    <div class="col">
-        <h6> <a href="userPosts.php"> <?php echo $username; ?> </a></h6>
-        <h6>  <?php echo $fullName; ?> </h6>
-        <h6>  <?php echo $email; ?> </h6>
-    </div>
+      <div class="col display-container">
+          <h6> <a href="userPosts.php"> <?php echo $username; ?> </a></h6>
+          <h6>  <?php echo $fullName; ?> </h6>
+          <h6>  <?php echo $email; ?> </h6>
+      </div>
         <form method="POST" action="message.php">
-        <input type="submit" value="Send message" class="btn btn-primary">
+        <input type="submit" value="Send message" class="btn btn-primary send-message">
         </form>
         
     </div>
