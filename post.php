@@ -6,7 +6,6 @@
   $password = "";
   $dbName = "testDB";
   $date = strval(date("M d, Y h:i:s a "));
-  echo $date;
   $announcement = $_POST['announcement'];
   $userID = $_SESSION['userID'];
 

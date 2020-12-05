@@ -44,7 +44,23 @@
                 }
                 });
             }
-                
+
+            function likeBt(id){
+                let announcementID = id;
+                console.log(announcementID);
+                $.ajax({
+        url: "like.php",
+        method: "POST",
+        data : { 
+            announcementID: id,
+           
+        },
+        success: function(res) { 
+            location.reload();
+            }
+        });
+     }
+    
             </script>
         </div>
         </div>

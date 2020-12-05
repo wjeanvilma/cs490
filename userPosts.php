@@ -10,7 +10,7 @@ include_once "header.php";
 
                     $conn = mysqli_connect($server, $user, $password, $dbName);
               
-                    $announcementQuery = "Select * from announcements join users on announcements.userID=users.userID where username ='".$_SESSION['search']."' order by timestamp DESC"; 
+                    $announcementQuery = "Select * from announcements join users on announcements.userID=users.userID where username ='".$_SESSION['selected']."' order by time_stamp DESC"; 
                     $annoucementResult = mysqli_query($conn, $announcementQuery);
                    
                     while ($aRow = mysqli_fetch_array($annoucementResult)){ 
@@ -23,11 +23,30 @@ include_once "header.php";
   
                     // displayAnnoucement($aRow['username'], $aRow['announcement'], $aRow['likes'], $aRow['announcementID'], $num_of_comments, $aRow['documentLocation']); 
                     
-                    echo '
-                    <div style="margin-left:5%; margin-right:5%;" class="card card-body posts">
+                    if ($aRow["documentLocation"] == NULL){
+                        echo'
+                    <div class="card w-75 card-body post" >
+                    <p style="display:none;" class="announcementID">'.$aRow["announcementID"].'</p>
+                        <p> <b>'.$aRow["username"].'</b> </p>
+                        <p class="card-text">'.$aRow["announcement"].'</p> 
+                        
+                        <p class="card-text">'.date("M d, Y h:i a ", strtotime($aRow["time_stamp"])).'</p> 
+                    </div>
+                    <br>';
+                        } else {
+                    
+                    echo'  
+                    <div  class="card w-75 card-body post">
+                    <p style="display:none;" class="announcementID">'.$aRow["announcementID"].'</p>
                         <p> <b>'.$aRow["username"].'</b> </p>
                         <p class="card-text">'.$aRow["announcement"].'</p>
-                    </div><br>';
+                        <img src="uploads/'.$aRow["documentLocation"].'">
+                        <br> 
+                        <p class="card-text">'.date("M d, Y h:i a ", strtotime($aRow["time_stamp"])).'</p>        
+                    </div>
+                    <br>
+                    ';
+                        }
                    
               }
         

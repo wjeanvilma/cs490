@@ -15,42 +15,39 @@ function displayAnn(){
                     $annoucementResult = mysqli_query($conn, $announcementQuery);
                    
                     while ($aRow = mysqli_fetch_array($annoucementResult)){ 
-                    
-                        if ($aRow["documentLocation"] == NULL){
+                        $commentQuery = "Select * from announcements a, comments c where a.announcementID=c.announcementID AND a.announcementID = ".$aRow['announcementID']." order by time_stamp DESC";
+                        $commentResult = mysqli_query($conn, $commentQuery);
+                        $num_of_comments = mysqli_num_rows($commentResult);
+
                         echo'
-                    <form action="comment.php" method="post">
-                    <div class="card card-body post" >
-                    <p style="display:none;" class="announcementID">'.$aRow["announcementID"].'</p>
-                        <p> <b>'.$aRow["username"].'</b> </p>
-                        <p class="card-text">'.$aRow["announcement"].'</p> 
-                        <p class="card-text">'.date("M d, Y h:i a ", strtotime($aRow["time_stamp"])).'</p> 
-                    </div>
-                    <input type="text" id="annoucement'.$aRow["announcementID"].'" name="comment" class="comment"> 
-                        <input class="commentBt" type="button" value="comment" onclick="getAnnID('.$aRow["announcementID"].')">
-                    </form>';
-                        } else {
-                    
-                    echo'  
-                    <div class="card card-body post">
+                        <div class="card card-body post">
                     <p style="display:none;" class="announcementID">'.$aRow["announcementID"].'</p>
                         <p> <b>'.$aRow["username"].'</b> </p>
                         <p class="card-text">'.$aRow["announcement"].'</p>
-                        <img src="uploads/'.$aRow["documentLocation"].'">
+                        ';
+                        if ($aRow["documentLocation"] != NULL){
+                            echo'<img src="uploads/'.$aRow["documentLocation"].'">';
+                        }
+                        echo'
+                        
                         <br> 
-                        <p class="card-text">'.date("M d, Y h:i a ", strtotime($aRow["time_stamp"])).'</p>        
+                        <p class="card-text">'.date("M d, Y h:i a ", strtotime($aRow["time_stamp"])).'</p>     
+                        <div class="form-inline">         
+                            <input style="margin-right:8px;" class="likeBt" onclick="likeBt('.$aRow["announcementID"].')" type="button" value="👍🏽">
+                            <h6 class="likes">'.$aRow["likes"].' likes</h6>
+                            <p id="commentBT" style="margin-left:15px;" type="submit">💬</p>
+                            <h6 style="margin-left:8px;" class="likes"> '.$num_of_comments.' Comments</h6>
+                        </div>   
                     </div>
                     <form action="comment.php" method="post">
                         <input type="text" id="annoucement'.$aRow["announcementID"].'" name="comment" class="comment"> 
                         <input class="commentBt" type="button" value="comment" onclick="getAnnID('.$aRow["announcementID"].')">
                     </form>';
-                        } 
 
-                    $commentQuery = "Select * from announcements a, comments c where a.announcementID=c.announcementID AND a.announcementID = ".$aRow['announcementID']." order by time_stamp DESC";
-                    $commentResult = mysqli_query($conn, $commentQuery);
-                    $num_of_comments = mysqli_num_rows($commentResult);
-
+                    
+                        
                     while ($cRow = mysqli_fetch_array($commentResult)){ 
-                
+                        
                     echo' 
                     <div style="margin-left:25px;">
                         <p><b>'.$cRow["username"].': </b> '.$cRow["comment"].'</p>
